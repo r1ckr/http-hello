@@ -54,10 +54,8 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>0.4.14</version>
 				<configuration>
-					<imageName>http-hello</imageName>
-					<baseImage>openjdk</baseImage>
-					<entryPoint>["java", "-Xmx128m", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
-					<!-- copy the service's jar file from target into the root directory of the image -->
+					<imageName>r1ckr/http-hello</imageName>
+					<dockerDirectory>docker</dockerDirectory>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
@@ -65,9 +63,6 @@
 							<include>${project.build.finalName}.jar</include>
 						</resource>
 					</resources>
-					<exposes>
-						<expose>7777</expose>
-					</exposes>
 				</configuration>
 			</plugin>
 		</plugins>
