@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.SplittableRandom;
+
 @SpringBootApplication
 @RestController
 public class HttpHelloApplication {
@@ -17,8 +19,9 @@ public class HttpHelloApplication {
 
 	@GetMapping("/")
 	public String getHello() {
+		SplittableRandom splittableRandom = new SplittableRandom();
 
-		int random = (int) (Math.random() * names.length - 1);
+		int random = splittableRandom.nextInt(0, names.length - 1);
 
 		return "Hello " + names[random];
 	}
