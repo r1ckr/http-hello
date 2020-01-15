@@ -4,19 +4,17 @@ Simple http server that returns a `Hello + random name` for test purposes
 
 # Run:
 ```
-mvn spring-boot:run
+node server.js
 ```
 
 # Build:
 ```
-mvn clean package docker:build
+docker build . -t r1ckr/http-hello:${version}
 ```
 
 # Run Container:
 ```
 docker run -d --name http-hello \
--e SERVER_TOMCAT_ACCESSLOG_ENABLED=true \
--e JAVA_TOOL_OPTIONS="-Xmx512m" \
 -p 7777:7777 \
 r1ckr/http-hello
 ```
